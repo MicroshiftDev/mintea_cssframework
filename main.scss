@@ -1,0 +1,16 @@
+@use "./css/all" as *;
+@use "./css/animations";
+@use "./css/effects";
+@use "./css/main";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: $background-color;
+  color: $text-color;
+  font-family: sans-serif;
+  img {
+    width: 50%;
+  }
+}
