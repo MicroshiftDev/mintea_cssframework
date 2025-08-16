@@ -14,3 +14,41 @@ body {
     width: 50%;
   }
 }
+h1,
+h2,
+h3 {
+  font-family: $font-1;
+  font-weight: 600;
+  color: $main-color;
+}
+
+h4,
+h5,
+h6 {
+  font-family: $font-2;
+  font-weight: 500;
+  color: $accent-color;
+}
+
+a {
+  font-family: $font-2;
+  font-weight: 600;
+  color: $surface-color;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+button {
+  color: $text-color;
+  background: $gradient-primary;
+  border: 2px solid $highlight-color;
+  border-radius: 10px;
+  padding: 20px 30px;
+  margin: 10px;
+}
+
+p {
+  font-family: $font-3;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $text-color;
+}

@@ -1,0 +1,8 @@
+@use "all" as *;
+
+a:hover,
+button:hover {
+  background: $gradient-light;
+  transform: scale(1.05);
+  transition: $transition;
+}
