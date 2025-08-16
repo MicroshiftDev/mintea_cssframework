@@ -1,16 +1,18 @@
 /* Colors */
 
-$main-color: #00c6c8; // morski turkus – jaśniejszy, bardziej świeży akcent
-$accent-color: #0094af; // chłodny morski błękit – mocniejszy kontrast
-$background-color: #0e1c1d; // głęboka morska zieleń z odcieniem czerni – tło strony
-$surface-color: #193637; // przyciemniony morski granit – karty, boxy
-$text-color: #e4f9fa; // bardzo jasna mięta – czytelna na ciemnym tle
-$muted-text-color: #88aeb2; // delikatny szaroniebieski – do opisów i podpowiedzi
-$highlight-color: #4ee3d3; // jasny turkus – linki, podświetlenia
+$main-color: #0174b2; // główny akcent (niebieski pastelowy)
+$accent-color: #008790; // mocniejszy kontrast (zielonkawo-niebieski)
+$background-color: #f8fafb; // jasne tło (prawie białe, ale z nutą szarości)
+$surface-color: #ffffff; // karty/boxy – czysta biel dla kontrastu
+$text-color: #2c2c2c; // ciemnoszary, wygodniejszy dla oka niż #000
+$muted-text-color: #6f7a85; // szaro-niebieski do opisów i podpowiedzi
+$highlight-color: #4cb9a6; // linki/podświetlenia (pastelowy turkus zbliżony do gradientu)
 
 /* Other */
 
 $transition-time: 750ms;
+$gradient-primary: linear-gradient(135deg, #0174b2, #008790);
+$gradient-light: linear-gradient(135deg, #4cb9a6, #8dd9c4);
 
 /* Fonts */
 
