@@ -13,5 +13,204 @@
   color: $muted-text-color;
 }
 
+// fallbacki gdyby czegoś brakło
+$radius: 16px !default;
+$gap: 1rem !default;
+$transition: 180ms ease !default;
+
 .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border-radius: $radius;
+  background: $surface-color;
+  color: $text-color;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: transform $transition, box-shadow $transition,
+    border-color $transition;
+
+  // media (zdjęcie/ilustracja)
+  &__media {
+    position: relative;
+    overflow: hidden;
+    border-radius: calc($radius - 4px);
+
+    img,
+    video,
+    picture > img {
+      display: block;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform $transition, filter $transition;
+    }
+  }
+
+  // header z tytułem
+  &__header {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  &__title {
+    font-family: $font-1; // Raleway – nagłówki
+    font-weight: 600;
+    font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+    line-height: 1.25;
+    color: $text-color;
+    margin: 0;
+  }
+
+  &__subtitle {
+    font-family: $font-3; // Sora – neutralny
+    font-size: 0.95rem;
+    color: $muted-text-color;
+    margin: 0;
+  }
+
+  // treść
+  &__content {
+    font-family: $font-3;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: $text-color;
+  }
+
+  // akcje (przyciski/linki)
+  &__actions {
+    margin-top: 0.25rem;
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .btn,
+    button,
+    a[role="button"] {
+      font-family: $font-2; // Barlow Condensed – CTA/UI
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 0.55rem 1rem;
+      border-radius: 12px;
+      border: none;
+      background: $gradient-primary;
+      color: #fff;
+      cursor: pointer;
+      transition: transform $transition, opacity $transition,
+        box-shadow $transition;
+
+      &:hover {
+        transform: translateY(-2px);
+        opacity: 0.95;
+      }
+      &:focus-visible {
+        outline: 3px solid rgba($main-color, 0.35);
+        outline-offset: 2px;
+      }
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: $accent-color;
+      border: 1px solid rgba($accent-color, 0.25);
+      &:hover {
+        background: rgba($accent-color, 0.06);
+      }
+    }
+  }
+
+  // interakcje globalnie
+  &:hover {
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.08);
+
+    &__media img {
+      transform: scale(1.02);
+    }
+  }
+
+  &:focus-within {
+    box-shadow: 0 0 0 3px rgba($main-color, 0.18),
+      0 10px 28px rgba(0, 0, 0, 0.1);
+  }
+
+  // wariant: klikalna cała karta
+  &--clickable {
+    cursor: pointer;
+    &:hover {
+      transform: translateY(-3px);
+    }
+    &:active {
+      transform: translateY(-1px);
+    }
+    &:focus-visible {
+      outline: 3px solid rgba($main-color, 0.35);
+      outline-offset: 3px;
+    }
+  }
+
+  // wariant: obrys zamiast cienia
+  &--outlined {
+    box-shadow: none;
+    border: 1px solid rgba($text-color, 0.1);
+  }
+
+  // wariant: mocniej uniesiona
+  &--elevated {
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
+  }
+
+  // wariant: top border w kolorze akcentu
+  &--accent {
+    border-top: 4px solid $main-color;
+    padding-top: calc(clamp(1rem, 2vw, 1.5rem) - 4px);
+  }
+
+  // wariant: poziomy układ dla szerokich ekranów
+  &--horizontal {
+    @media (min-width: 720px) {
+      flex-direction: row;
+      align-items: stretch;
+
+      &__media {
+        flex: 0 0 42%;
+        img {
+          height: 100%;
+        }
+      }
+
+      &__body {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        gap: $gap;
+      }
+    }
+  }
+}
+
+// Dark mode (np. <html data-theme="dark">)
+[data-theme="dark"] {
+  .card {
+    background: mix($surface-color, #000, 12%);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+
+    &__subtitle {
+      color: mix($muted-text-color, #fff, 30%);
+    }
+  }
+}
+
+// Szacunek dla preferencji ruchu
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card * {
+    transition: none !important;
+    transform: none !important;
+  }
 }
