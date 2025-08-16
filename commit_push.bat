@@ -9,9 +9,9 @@ for /f "tokens=1-4 delims=/:. " %%a in ("%date% %time%") do (
 )
 
 git commit -m "Auto-commit %datetime%"
-echo 🚀 Commit zrobiony!
+echo 🔄 Commit zrobiony!
 
 git push origin main
-echo ✅ Push zakończony!
+echo 🔄 Push zakończony!
 
 pause
