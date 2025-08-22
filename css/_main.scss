@@ -13,17 +13,74 @@
   color: $muted-text-color;
 }
 
-.row {
+.flex-row {
   @include flex;
-  width: 80%;
-  margin: 10px auto;
-  gap: 1rem;
+  flex-direction: row;
 }
 
-// fallbacki gdyby czegoś brakło
-$radius: 16px !default;
-$gap: 1rem !default;
-$transition: 180ms ease !default;
+.flex-column {
+  @include flex;
+  flex-direction: column;
+}
+
+.full-container {
+  @include flex;
+  @include fc;
+}
+
+.container {
+  @include flex;
+  @include c;
+}
+
+.vh-height {
+  height: var(--vh);
+}
+
+.vw-width {
+  width: var(--vw);
+}
+
+.gap {
+  gap: var(--gap);
+}
+
+.nav-links {
+  @include flex-around;
+  text-decoration: none;
+  gap: 10px;
+}
+
+.sticky {
+  position: sticky;
+}
+.justify-start {
+  justify-content: start;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-end {
+  justify-content: end;
+}
+.align-start {
+  align-items: start;
+}
+.align-center {
+  align-items: center;
+}
+.align-end {
+  align-items: end;
+}
+
+@each $s in $space-values {
+  .m-#{$s} {
+    margin: $s;
+  }
+  .p-#{$s} {
+    padding: $s;
+  }
+}
 
 .card {
   position: relative;
@@ -36,8 +93,8 @@ $transition: 180ms ease !default;
   color: $text-color;
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-  transition: transform $transition, box-shadow $transition,
-    border-color $transition;
+  transition: transform $transition2, box-shadow $transition2,
+    border-color $transition2;
 
   // media (zdjęcie/ilustracja)
   &__media {
@@ -52,7 +109,7 @@ $transition: 180ms ease !default;
       width: 100%;
       height: 220px;
       object-fit: cover;
-      transition: transform $transition, filter $transition;
+      transition: transform $transition2, filter $transition2;
     }
   }
 
@@ -107,8 +164,8 @@ $transition: 180ms ease !default;
       background: $gradient-primary;
       color: #fff;
       cursor: pointer;
-      transition: transform $transition, opacity $transition,
-        box-shadow $transition;
+      transition: transform $transition2, opacity $transition2,
+        box-shadow $transition2;
 
       &:hover {
         transform: translateY(-2px);

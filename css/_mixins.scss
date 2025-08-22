@@ -10,3 +10,15 @@
   align-items: center;
   flex-wrap: wrap;
 }
+@mixin c {
+  width: 80%;
+  height: 100%;
+  margin: 0.75rem;
+  min-height: fit-content;
+}
+@mixin fc {
+  width: 98%;
+  height: 100%;
+  margin: 0.75rem;
+  min-height: fit-content;
+}

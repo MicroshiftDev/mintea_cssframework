@@ -13,6 +13,10 @@ $highlight-color: #4cb9a6; // linki/podświetlenia (pastelowy turkus zbliżony d
 $transition: all ease-in-out 550ms;
 $gradient-primary: linear-gradient(135deg, #0174b2, #008790);
 $gradient-light: linear-gradient(135deg, #4cb9a6, #8dd9c4);
+$radius: 16px !default;
+$gap: 1.25rem !default;
+$transition2: 180ms ease !default;
+$space-values: 0,4px,8px,16px,24px,32px;
 
 /* Fonts */
 
